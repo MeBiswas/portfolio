@@ -8,10 +8,9 @@ import Resume from "./components/Resume";
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
 import Services from "./components/Services";
-import PreLoader from "./components/PreLoader";
 import Portfolio from "./components/Portfolio";
 
-function App() {
+const App = () => {
   return (
     <>
       <Header logoTitle="Menu" />
@@ -24,9 +23,8 @@ function App() {
       <Stats />
       <Contact />
       <Footer />
-      {/* <PreLoader /> */}
     </>
   );
-}
+};
 
 export default App;

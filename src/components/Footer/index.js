@@ -4,39 +4,39 @@ import PropTypes from "prop-types";
 function Footer(props) {
   return (
     <footer>
-      <div class="row">
-        <div class="col-six tab-full pull-right social">
-          <ul class="footer-social">
+      <div className="row">
+        <div className="col-six tab-full pull-right social">
+          <ul className="footer-social">
             <li>
               <a href="/">
-                <i class="fa fa-facebook"></i>
+                <i className="fa fa-facebook"></i>
               </a>
             </li>
             <li>
               <a href="/">
-                <i class="fa fa-behance"></i>
+                <i className="fa fa-behance"></i>
               </a>
             </li>
             <li>
               <a href="/">
-                <i class="fa fa-twitter"></i>
+                <i className="fa fa-twitter"></i>
               </a>
             </li>
             <li>
               <a href="/">
-                <i class="fa fa-dribbble"></i>
+                <i className="fa fa-dribbble"></i>
               </a>
             </li>
             <li>
               <a href="/">
-                <i class="fa fa-instagram"></i>
+                <i className="fa fa-instagram"></i>
               </a>
             </li>
           </ul>
         </div>
 
-        <div class="col-eight tab-full">
-          <div class="copyright">
+        <div className="col-eight tab-full">
+          <div className="copyright">
             <span>© Copyright 2018 {props.copyright}</span>
             <span>
               Design by <a href="http://www.styleshout.com/">styleshout</a>
@@ -48,8 +48,8 @@ function Footer(props) {
         </div>
 
         <div id="go-top">
-          <a class="smoothscroll" title="Back to Top" href="#top">
-            <i class="fa fa-long-arrow-up"></i>
+          <a className="smoothscroll" title="Back to Top" href="#top">
+            <i className="fa fa-long-arrow-up"></i>
           </a>
         </div>
       </div>

@@ -3,16 +3,16 @@ import PropTypes from "prop-types";
 
 function CTA(props) {
   return (
-    <section id="cta" class="grey-section">
-      <div class="row cta-content">
-        <div class="col-twelve section-ads">
-          <h2 class="h01">
+    <section id="cta" className="grey-section">
+      <div className="row cta-content">
+        <div className="col-twelve section-ads">
+          <h2 className="h01">
             <a href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT">
               {props.text}Styleshout Recommends Dreamhost.
             </a>
           </h2>
 
-          <p class="lead">
+          <p className="lead">
             Looking for an awesome and reliable webhosting? Try{" "}
             <a href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT">
               <span>DreamHost</span>
@@ -21,9 +21,9 @@ function CTA(props) {
             <span>styleshout</span>.
           </p>
 
-          <div class="action">
+          <div className="action">
             <a
-              class="button button-primary large"
+              className="button button-primary large"
               href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT"
             >
               Sign Up Now
