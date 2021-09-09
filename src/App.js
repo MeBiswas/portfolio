@@ -1,3 +1,5 @@
+// Hooks
+import { useState, useEffect } from "react";
 // Components
 import CTA from "./components/CTA";
 import Intro from "./components/Intro";
@@ -7,10 +9,20 @@ import Header from "./components/Header";
 import Resume from "./components/Resume";
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
-import Services from "./components/Services";
+import Services from "./components/Servicess";
+import PreLoader from "./components/PreLoader";
 import Portfolio from "./components/Portfolio";
 
 const App = () => {
+  // State
+  const [isLoading, setLoading] = useState(true);
+  // LifeCycle Method
+  useEffect(() => {
+    if (isLoading) {
+      setTimeout(() => setLoading(!isLoading), 5000);
+    }
+  }, [isLoading]);
+
   return (
     <>
       <Header logoTitle="Menu" />
@@ -23,6 +35,7 @@ const App = () => {
       <Stats />
       <Contact />
       <Footer />
+      {isLoading && <PreLoader />}
     </>
   );
 };
