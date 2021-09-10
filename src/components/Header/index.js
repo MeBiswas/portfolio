@@ -1,21 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 const Header = (props) => {
+  // State
+  const [menu, setMenu] = useState(false);
+
   return (
     <header>
       <div className="row">
-        <div className="top-bar">
-          <a className="menu-toggle" href="/">
+        <div data-test="top-bar" className="top-bar">
+          <a
+            href="/"
+            data-test="menu-toggle"
+            className={"menu-toggle" + (menu ? " is-clicked" : "")}
+            onClick={(e) => {
+              setMenu(!menu);
+            }}
+          >
             <span>Menu</span>
           </a>
 
-          <div className="logo">
+          <div data-test="logo" className="logo">
             <a href="index.html">{props.logoTitle}</a>
           </div>
 
-          <nav id="main-nav-wrap">
-            <ul className="main-navigation">
+          <nav data-test="main-nav-wrap" id="main-nav-wrap">
+            <ul
+              className="main-navigation"
+              style={{ display: menu ? "block" : "none" }}
+            >
               <li className="current">
                 <a className="smoothscroll" href="#intro" title="">
                   Home
