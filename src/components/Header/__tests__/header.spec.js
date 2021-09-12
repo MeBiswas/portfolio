@@ -1,38 +1,90 @@
 import React from "react";
 import Header from "../index";
-import { shallow } from "enzyme";
-import { findByTestAttr } from "../../../utils/testing";
+import { mount, shallow } from "enzyme";
+import { checkProps, findByTestAttr } from "../../../utils";
+
+// Component setup for testing
+const setup = (type, props = {}) => {
+	switch (type) {
+		case "m": {
+			const component = mount(<Header {...props} />);
+			return component;
+		}
+		case "s": {
+			const component = shallow(<Header {...props} />);
+			return component;
+		}
+		default:
+			return null;
+	}
+};
 
 describe("Header Component", () => {
-  let component;
-  beforeEach(() => {
-    component = shallow(<Header />);
-  });
+	// Testing for propTypes
+	describe("checking propTypes", () => {
+		it("should not throw a warning", () => {
+			const expectedPropTypes = {
+				logoTitle: "Test Title",
+			};
 
-  it("should render without error", () => {
-    expect(component.exists()).toBe(true);
-  });
+			const propsErr = checkProps(Header, expectedPropTypes);
+			expect(propsErr).toBeUndefined();
+		});
+	});
 
-  it("should render top bar without error", () => {
-    const wrapper = findByTestAttr(component, "top-bar");
-    expect(wrapper.length).toBe(1);
-  });
+	// Testing without props
+	describe("when does not have props", () => {
+		let component;
+		beforeEach(() => {
+			component = setup("s");
+		});
 
-  it("should render logo without error", () => {
-    const wrapper = findByTestAttr(component, "logo");
-    expect(wrapper.length).toBe(1);
-  });
+		it("should render without error", () => {
+			// console.log(component.debug());
+			expect(component.exists()).toBe(true);
+		});
+	});
 
-  it("should render navbar without error", () => {
-    const wrapper = findByTestAttr(component, "main-nav-wrap");
-    expect(wrapper.length).toBe(1);
-  });
+	// Testing with props
+	describe("when have props", () => {
+		let component;
+		beforeEach(() => {
 
-  it("test click event", () => {
-    const mockFn = jest.fn();
-    const button = findByTestAttr(component, "menu-toggle");
-    button.simulate("click");
-    const callback = mockFn.mock.calls.length;
-    expect(callback.length).toBe(1);
-  });
+			const props = {
+				logoTitle: "Test Title",
+			};
+			component = setup("s", props);
+		});
+
+		it("should render without error", () => {
+			expect(component.exists()).toBe(true);
+		});
+
+		it("should render top bar without error", () => {
+			const wrapper = findByTestAttr(component, "top-bar");
+			expect(wrapper.length).toBe(1);
+		});
+
+		it("should render logo without error", () => {
+			const wrapper = findByTestAttr(component, "logo");
+			expect(wrapper.length).toBe(1);
+		});
+
+		it("should render navbar without error", () => {
+			const wrapper = findByTestAttr(component, "main-nav-wrap");
+			expect(wrapper.length).toBe(1);
+		});
+
+		it("should not show before click", () => {
+			const wrapper = findByTestAttr(component, "menu-visible");
+			expect(wrapper.length).toBe(0);
+		});
+
+		it("should show menu on click", () => {
+			const button = findByTestAttr(component, "menu-toggle");
+			button.simulate("click");
+			const wrapper = findByTestAttr(component, "menu-visible");
+			expect(wrapper.length).toEqual(1);
+		});
+	});
 });
