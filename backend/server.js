@@ -1,9 +1,13 @@
+const cors = require("cors");
 const express = require("express");
 const mongoose = require("mongoose");
 const schema = require("./schema/index");
 const { graphqlHTTP } = require("express-graphql");
 
 const app = express();
+
+// Cross-Origin Connection Handler
+app.use(cors());
 
 // Mongoose Driver
 const uri =

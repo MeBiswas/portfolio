@@ -1,0 +1,41 @@
+// Apollo
+import { gql, useQuery } from "@apollo/client";
+import { useEffect } from "react";
+// Redux Hooks
+import { useDispatch, useSelector } from "react-redux";
+// Actions
+import { fetchIntro } from "../../redux/Actions";
+
+// Query
+const getIntroductionQuery = gql`
+  {
+    intro {
+      name
+      specialization
+    }
+  }
+`;
+
+// Custom Hook for Intro Component
+const useIntroHook = () => {
+  // Dispatcher
+  const dispatch = useDispatch();
+
+  // Query Hook
+  const { data, error, loading } = useQuery(getIntroductionQuery);
+
+  // Dispatch Action
+  useEffect(() => {
+    if (data) {
+      const { name, specialization } = { ...data.intro[0] };
+      dispatch(fetchIntro({ name, specialization }));
+    }
+  }, [dispatch, data]);
+
+  // Retrieving Data from Redux
+  const IntroData = useSelector((state) => state.IntroductionReducer);
+
+  return { error, loading, IntroData };
+};
+
+export default useIntroHook;

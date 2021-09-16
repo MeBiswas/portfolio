@@ -7,7 +7,7 @@ const Intro_model = require("../models/intro");
 const About_model = require("../models/about");
 
 const {
-  GraphQLID,
+  GraphQLList,
   GraphQLString,
   GraphQLSchema,
   GraphQLNonNull,
@@ -18,17 +18,15 @@ const RootQuery = new GraphQLObjectType({
   name: "Get_Portfolio",
   fields: {
     intro: {
-      type: IntroductionType,
-      args: { id: { type: GraphQLID } },
+      type: new GraphQLList(IntroductionType),
       resolve(parent, args) {
-        return Intro_model.findById(args.id);
+        return Intro_model.find({});
       },
     },
     about: {
-      type: AboutType,
-      args: { id: { type: GraphQLID } },
+      type: new GraphQLList(AboutType),
       resolve(parent, args) {
-        return About_model.findById(args.id);
+        return About_model.find({});
       },
     },
   },
