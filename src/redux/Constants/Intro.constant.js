@@ -1,3 +1,3 @@
-export const actionTypes = {
+export const introActionTypes = {
 	GET_INTRO: "getIntroduction",
 };
