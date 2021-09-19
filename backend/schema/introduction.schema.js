@@ -1,11 +1,11 @@
 const graphql = require("graphql");
-const { GraphQLString, GraphQLObjectType } = graphql;
+const { GraphQLList, GraphQLString, GraphQLObjectType } = graphql;
 
 const Introduction = new GraphQLObjectType({
   name: "Intro",
   fields: () => ({
     name: { type: GraphQLString },
-    specialization: { type: GraphQLString },
+    specialization: { type: new GraphQLList(GraphQLString) },
   }),
 });
 

@@ -1,9 +1,9 @@
 // Action Types
-import { actionTypes } from "../Constants";
+import { introActionTypes } from "../Constants";
 
 export const fetchIntro = (payload) => (dispatch) => {
   dispatch({
-    payload,
-    type: actionTypes.GET_INTRO,
-  });
+		payload,
+		type: introActionTypes.GET_INTRO,
+	});
 };
