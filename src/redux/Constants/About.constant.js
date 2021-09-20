@@ -1,3 +1,3 @@
 export const aboutActionTypes = {
-  GET_ABOUT: "getAbout"
-}
+  GET_ABOUT: "getAbout",
+};
