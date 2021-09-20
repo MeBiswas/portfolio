@@ -1,21 +1,13 @@
 // LifeCycle Hook
 import { useEffect } from "react";
 // Apollo
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 // Actions
 import { fetchIntro } from "../../redux/Actions";
 // Redux Hooks
 import { useDispatch, useSelector } from "react-redux";
-
 // Query
-const getIntroductionQuery = gql`
-  {
-    intro {
-      name
-      specialization
-    }
-  }
-`;
+import { getIntroductionQuery } from "../../utils/queries";
 
 // Custom Hook for Intro Component
 const useIntroHook = () => {
