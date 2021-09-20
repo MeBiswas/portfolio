@@ -1,7 +1,7 @@
-// Action Types
-import { introActionTypes } from "../../../Constants";
 // Reducer
 import { IntroductionReducer } from "../reducer";
+// Action Types
+import { introActionTypes } from "../../../Constants";
 
 const reducerState = (state, payload = {}) => {
   const newState = IntroductionReducer(state, payload);
