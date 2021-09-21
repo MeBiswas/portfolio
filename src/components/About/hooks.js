@@ -2,12 +2,12 @@
 import { useEffect } from "react";
 // Apollo
 import { useQuery } from "@apollo/client";
+// Query
+import { getAboutDataQuery } from "../../utils";
 // Action
 import { fetchAbout } from "../../redux/Actions";
 // Redux Hook
 import { useDispatch, useSelector } from "react-redux";
-// Query
-import { getAboutDataQuery } from "../../utils/queries";
 
 // Custom Hook for Intro Component
 const useAboutHook = () => {

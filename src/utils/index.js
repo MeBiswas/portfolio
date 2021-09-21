@@ -1,1 +1,2 @@
-export * from './testing';
+export * from "./testing/testing.util";
+export * from "./queries/queries.util";

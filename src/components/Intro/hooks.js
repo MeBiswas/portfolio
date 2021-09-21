@@ -4,10 +4,10 @@ import { useEffect } from "react";
 import { useQuery } from "@apollo/client";
 // Actions
 import { fetchIntro } from "../../redux/Actions";
+// Query
+import { getIntroductionQuery } from "../../utils";
 // Redux Hooks
 import { useDispatch, useSelector } from "react-redux";
-// Query
-import { getIntroductionQuery } from "../../utils/queries";
 
 // Custom Hook for Intro Component
 const useIntroHook = () => {

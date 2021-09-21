@@ -1,5 +1,5 @@
 // Reducer
-import { AboutReducer } from "../reducer";
+import { AboutReducer } from "../about.reducer";
 // Action Types
 import { aboutActionTypes } from "../../../Constants";
 

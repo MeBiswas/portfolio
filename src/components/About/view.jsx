@@ -9,7 +9,7 @@ export const AboutComponent = ({
 	skillsTitle,
 	profileTitle,
 }) => {
-  const { dob, job, name, email, website } = { ...profile[0] };
+  const { dob, job, name, email, website } = profile[0];
 	return (
 		<section id="about">
 			<div className="row section-intro">
@@ -94,8 +94,17 @@ export const AboutComponent = ({
 
 AboutComponent.propTypes = {
 	title: PropTypes.string,
-	// skills: PropTypes.string,
-	// profile: PropTypes.string,
 	skillsTitle: PropTypes.string,
 	profileTitle: PropTypes.string,
+	skills: PropTypes.arrayOf(PropTypes.shape({
+		skill: PropTypes.string,
+		proficiency: PropTypes.number
+	})),
+	profile: PropTypes.arrayOf(PropTypes.shape({
+		dob: PropTypes.string,
+		name: PropTypes.string,
+		email: PropTypes.string,
+		website: PropTypes.string,
+		job: PropTypes.arrayOf(PropTypes.string),
+	})),
 };

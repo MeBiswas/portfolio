@@ -1,23 +1,23 @@
-import Intro from "../index";
+import About from "../index";
 import { Provider } from "react-redux";
 import { mount, shallow } from "enzyme";
 import { storeTest } from "../../../utils";
 
 const store = storeTest();
-const setup = (type, props = {}) => {
+const setup = (type) => {
   switch (type) {
-    case "s": {
-      const wrapper = shallow(
+    case "m": {
+      const wrapper = mount(
         <Provider store={store}>
-          <Intro {...props} />
+          <About />
         </Provider>
       );
       return wrapper;
     }
-    case "m": {
-      const wrapper = mount(
+    case "s": {
+      const wrapper = shallow(
         <Provider store={store}>
-          <Intro {...props} />
+          <About />
         </Provider>
       );
       return wrapper;
@@ -27,7 +27,7 @@ const setup = (type, props = {}) => {
   }
 };
 
-describe("Introduction Component", () => {
+describe("About Component", () => {
   let component;
   beforeEach(() => {
     component = setup("s");
