@@ -1,22 +1,24 @@
 const graphql = require("graphql");
-const { GraphQLString, GraphQLObjectType } = graphql;
+const { GraphQLList, GraphQLString, GraphQLObjectType } = graphql;
+const Education_model = require("../models/education.model");
+const Experience_model = require("../models/experience.model");
 
-const WorkExpType = new GraphQLObjectType({
-	name: "work_exp",
+const ExperienceType = new GraphQLObjectType({
+	name: "Experience",
 	fields: () => ({
+		tenure: { type: GraphQLString },
 		company: { type: GraphQLString },
-		experience: { type: GraphQLString },
 		designation: { type: GraphQLString },
 		description: { type: GraphQLString },
 	}),
 });
 
 const EducationType = new GraphQLObjectType({
-	name: "education",
+	name: "Education",
 	fields: () => ({
 		course: { type: GraphQLString },
 		duration: { type: GraphQLString },
-		Institution: { type: GraphQLString },
+		institution: { type: GraphQLString },
 		description: { type: GraphQLString },
 	}),
 });
@@ -24,10 +26,19 @@ const EducationType = new GraphQLObjectType({
 const ResumeType = new GraphQLObjectType({
 	name: "Resume",
 	fields: () => ({
-		title: { type: GraphQLString },
-		work_exp: { type: WorkExpType },
-		education: { type: EducationType },
+		education: {
+			type: new GraphQLList(EducationType),
+			resolve(parent, args) {
+				return Education_model.find({});
+			},
+		},
+		experience: {
+			type: new GraphQLList(ExperienceType),
+			resolve(parent, args) {
+				return Experience_model.find({});
+			},
+		},
 	}),
 });
 
-module.exports = ResumeType;
+module.exports = { ResumeType, ExperienceType, EducationType };

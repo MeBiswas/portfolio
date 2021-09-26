@@ -15,12 +15,23 @@ export const findByTestAttr = (component, attribute) => {
 
 // To Test with Check PropTypes
 export const checkProps = (component, expectedProps) => {
-  const propErr = checkPropTypes(component.propTypes, expectedProps, 'props', component.name);
-  return propErr;
-}
+	const propErr = checkPropTypes(
+		component.propTypes,
+		expectedProps,
+		"props",
+		component.name
+	);
+	return propErr;
+};
 
 // To Test with Mock Store
 export const storeTest = (initState) => {
-  const createMockStore = applyMiddleware(...middlewares)(createStore);
-  return createMockStore(rootReducer, initState);
-}
+	const createMockStore = applyMiddleware(...middlewares)(createStore);
+	return createMockStore(rootReducer, initState);
+};
+
+// To Test Reducer
+export const reducerState = (state, action = {}, reducer) => {
+	const newState = reducer(state, action);
+	return newState;
+};

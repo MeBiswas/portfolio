@@ -4,7 +4,7 @@ const Profile_model = require("../models/profile.model");
 const { GraphQLInt, GraphQLList, GraphQLString, GraphQLObjectType } = graphql;
 
 const ProfileType = new GraphQLObjectType({
-  name: "profile",
+  name: "Profile",
   fields: () => ({
     dob: { type: GraphQLString },
     name: { type: GraphQLString },
@@ -15,7 +15,7 @@ const ProfileType = new GraphQLObjectType({
 });
 
 const SkillsType = new GraphQLObjectType({
-  name: "skills",
+  name: "Skills",
   fields: () => ({
     skill: { type: GraphQLString },
     proficiency: { type: GraphQLInt },

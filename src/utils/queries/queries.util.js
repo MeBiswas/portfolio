@@ -32,3 +32,23 @@ export const getAboutDataQuery = gql`
     }
   }
 `;
+
+// Resume Query
+export const getResumeDataQuery = gql`
+	{
+		resume {
+			education {
+				course
+				duration
+				institution
+				description
+			}
+			experience {
+				tenure
+				company
+				designation
+				description
+			}
+		}
+	}
+`;

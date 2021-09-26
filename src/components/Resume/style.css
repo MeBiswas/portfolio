@@ -1,0 +1,8 @@
+#resume .timeline-wrap-none {
+  position: relative;
+  margin-top: 1.5rem;
+  margin-bottom: 6rem;
+}
+#resume .timeline-wrap-none::before {
+  content: none;
+}
