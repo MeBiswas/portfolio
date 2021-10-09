@@ -3,13 +3,19 @@ const graphql = require("graphql");
 const Intro_model = require("../models/intro.model");
 const About_model = require("../models/about.model");
 const Skills_model = require("../models/skills.model");
+const Contact_model = require("../models/contact.model");
 const Profile_model = require("../models/profile.model");
 const Education_model = require("../models/education.model");
 const Experience_model = require("../models/experience.model");
 // GQL Schemas
+const ContactType = require("./contact.schema");
 const IntroductionType = require("./introduction.schema");
 const { AboutType, SkillsType, ProfileType } = require("./about.schema");
-const { ResumeType, ExperienceType, EducationType } = require("./resume.schema");
+const {
+	ResumeType,
+	EducationType,
+	ExperienceType,
+} = require("./resume.schema");
 
 const {
 	GraphQLInt,
@@ -35,18 +41,34 @@ const RootQuery = new GraphQLObjectType({
 				return About_model.find({});
 			},
 		},
-    resume: {
-      type: ResumeType,
-      resolve(parent, args) {
-        return this;
-      }
-    }
+		resume: {
+			type: ResumeType,
+			resolve(parent, args) {
+				return this;
+			},
+		},
 	},
 });
 
 const Mutation = new GraphQLObjectType({
 	name: "Mutate_Portfolio",
 	fields: {
+		addAbout: {
+			type: AboutType,
+			args: {
+				title: { type: new GraphQLNonNull(GraphQLString) },
+				profileTitle: { type: new GraphQLNonNull(GraphQLString) },
+				skillsTitle: { type: new GraphQLNonNull(GraphQLString) },
+			},
+			resolve(parent, args) {
+				let about = new About_model({
+					title: args.title,
+					profileTitle: args.profileTitle,
+					skillsTitle: args.skillsTitle,
+				});
+				return about.save();
+			},
+		},
 		addIntro: {
 			type: IntroductionType,
 			args: {
@@ -63,20 +85,18 @@ const Mutation = new GraphQLObjectType({
 				return intro.save();
 			},
 		},
-		addAbout: {
-			type: AboutType,
+		addSkills: {
+			type: SkillsType,
 			args: {
-				title: { type: new GraphQLNonNull(GraphQLString) },
-				profileTitle: { type: new GraphQLNonNull(GraphQLString) },
-				skillsTitle: { type: new GraphQLNonNull(GraphQLString) },
+				skill: { type: new GraphQLNonNull(GraphQLString) },
+				proficiency: { type: new GraphQLNonNull(GraphQLInt) },
 			},
 			resolve(parent, args) {
-				let about = new About_model({
-					title: args.title,
-					profileTitle: args.profileTitle,
-					skillsTitle: args.skillsTitle,
+				let skills = new Skills_model({
+					skill: args.skill,
+					proficiency: args.proficiency,
 				});
-				return about.save();
+				return skills.save();
 			},
 		},
 		addProfile: {
@@ -99,36 +119,22 @@ const Mutation = new GraphQLObjectType({
 				return profile.save();
 			},
 		},
-		addSkills: {
-			type: SkillsType,
+		addContact: {
+			type: ContactType,
 			args: {
-				skill: { type: new GraphQLNonNull(GraphQLString) },
-				proficiency: { type: new GraphQLNonNull(GraphQLInt) },
+				name: { type: new GraphQLNonNull(GraphQLString) },
+				email: { type: new GraphQLNonNull(GraphQLString) },
+				subject: { type: new GraphQLNonNull(GraphQLString) },
+				message: { type: new GraphQLNonNull(GraphQLString) },
 			},
 			resolve(parent, args) {
-				let skills = new Skills_model({
-					skill: args.skill,
-					proficiency: args.proficiency,
+				let cont = new Contact_model({
+					name: args.name,
+					email: args.email,
+					subject: args.subject,
+					message: args.message,
 				});
-				return skills.save();
-			},
-		},
-		addExperience: {
-			type: ExperienceType,
-			args: {
-				tenure: { type: new GraphQLNonNull(GraphQLString) },
-				company: { type: new GraphQLNonNull(GraphQLString) },
-				designation: { type: new GraphQLNonNull(GraphQLString) },
-				description: { type: new GraphQLNonNull(GraphQLString) },
-			},
-			resolve(parent, args) {
-				let exp = new Experience_model({
-					tenure: args.tenure,
-					company: args.company,
-					designation: args.designation,
-					description: args.description,
-				});
-				return exp.save();
+				return cont.save();
 			},
 		},
 		addEducation: {
@@ -147,6 +153,24 @@ const Mutation = new GraphQLObjectType({
 					description: args.description,
 				});
 				return edu.save();
+			},
+		},
+		addExperience: {
+			type: ExperienceType,
+			args: {
+				tenure: { type: new GraphQLNonNull(GraphQLString) },
+				company: { type: new GraphQLNonNull(GraphQLString) },
+				designation: { type: new GraphQLNonNull(GraphQLString) },
+				description: { type: new GraphQLNonNull(GraphQLString) },
+			},
+			resolve(parent, args) {
+				let exp = new Experience_model({
+					tenure: args.tenure,
+					company: args.company,
+					designation: args.designation,
+					description: args.description,
+				});
+				return exp.save();
 			},
 		},
 	},

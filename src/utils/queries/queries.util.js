@@ -52,3 +52,15 @@ export const getResumeDataQuery = gql`
 		}
 	}
 `;
+
+// Contact Mutation
+export const postContactDataMutation = gql`
+	mutation($name: String!, $email: String!, $subject: String!, $message: String!) {
+		addContact(name: $name, email: $email,  subject: $subject, message: $message) {
+      name
+      email
+      subject
+      message
+    }
+	}
+`;
