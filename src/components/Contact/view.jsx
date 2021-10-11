@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const ContactComponent = ({ name, change, email, submit, subject, message }) => {
+export const ContactComponent = ({ name, change, email, submit, subject, message }) => {
 	return (
 		<section id="contact">
 			<div className="row section-intro">
@@ -139,5 +139,3 @@ ContactComponent.propTypes = {
 	subject: PropTypes.string,
 	message: PropTypes.string,
 };
-
-export default ContactComponent;
