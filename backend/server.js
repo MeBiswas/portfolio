@@ -1,3 +1,4 @@
+// Packages
 const cors = require("cors");
 const env = require("dotenv");
 const express = require("express");
@@ -21,25 +22,32 @@ app.use(cors());
 
 // Mongoose Driver
 const uri =
-  "mongodb+srv://abhi:neversharesecrets@cluster0.b9yog.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+	"mongodb+srv://abhi:neversharesecrets@cluster0.b9yog.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 mongoose.connect(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
 });
 mongoose.connection.once("open", () => {
-  console.log("Database connected");
+	console.log("Database connected");
 });
 
-// Middleware
+// Base Route
+app.get("/", (req, res) => res.send("Base Route"));
+
+// API Route
+const apiRoute = require("./routes");
+app.use("/api", apiRoute);
+
+// GraphQL Route
 app.use(
-  "/graphql",
-  graphqlHTTP({
-    schema,
-    graphiql: true,
-  })
+	"/graphql",
+	graphqlHTTP({
+		schema,
+		graphiql: true,
+	})
 );
 
 // Listening to Server
 app.listen(process.env.PORT, () => {
-  console.log("Server up and running");
+	console.log("Server up and running");
 });
