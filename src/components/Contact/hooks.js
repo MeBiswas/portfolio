@@ -6,17 +6,18 @@ import { useMutation } from "@apollo/client";
 import { postContactDataMutation } from "../../utils";
 
 const useContactHook = () => {
-	const [contact, setContact] = useState({
-		name: "",
-		email: "",
-		subject: "",
-		message: "",
-	});
+  const [contact, setContact] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
 
   const [contactMutation, { data, error, loading }] = useMutation(
-		postContactDataMutation
-	);
+    postContactDataMutation
+  );
 
+  console.log("Ethe aa", contactMutation);
   return {
     data,
     error,
@@ -24,7 +25,7 @@ const useContactHook = () => {
     loading,
     setContact,
     contactMutation,
-  }
+  };
 };
 
 export default useContactHook;
