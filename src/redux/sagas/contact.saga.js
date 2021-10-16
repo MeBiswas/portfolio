@@ -1,31 +1,31 @@
+// API Helper Generator
+import { postRequest } from "../../utils";
+// Action Types
+import { contactActionTypes } from "../Constants";
 // Redux Saga
 import { put, takeLatest } from "redux-saga/effects";
 
-const api_uri = "http://localhost:4000/api";
-
-function* sendMailAPIRequest() {
-  const response = yield fetch(api_uri + "/mail", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-  })
-    .then((response) => response.json())
-    .catch((err) => {
-      throw err;
-    });
-  return response;
+// Worker Saga
+function* contactWorker(action) {
+	try {
+		const res = yield postRequest("/mail", action.payload);
+		if (res.status === 200) {
+			yield put({
+				type: contactActionTypes.Send_Mail_Success,
+				payload: { message: "Mail Sent" },
+			});
+		}
+	} catch (error) {
+		yield put({
+			type: contactActionTypes.Send_Mail_Error,
+			payload: error.message,
+		});
+	}
 }
 
-function* contactRequest(action) {
-  try {
-    const res = sendMailAPIRequest();
-    yield put({ type: "Send_Mail_Success", payload: res });
-  } catch (error) {
-    yield put({ type: "Send_Mail_Error", payload: error.message });
-  }
-}
-
+// Watcher Saga
 function* contactSaga() {
-  yield takeLatest("Send_Mail", contactRequest);
+	yield takeLatest(contactActionTypes.Send_Mail, contactWorker);
 }
 
 export default contactSaga;

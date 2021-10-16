@@ -4,28 +4,46 @@ import { useState } from "react";
 import { useMutation } from "@apollo/client";
 // Mutation
 import { postContactDataMutation } from "../../utils";
+// Redux Hook
+import { useDispatch, useSelector } from "react-redux";
+// Actions
+import {
+	contactSendMailAction,
+} from "../../redux/Actions";
 
 const useContactHook = () => {
-  const [contact, setContact] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+	// Dispatcher
+	const dispatch = useDispatch();
 
-  const [contactMutation, { data, error, loading }] = useMutation(
-    postContactDataMutation
-  );
+	// State
+	const [contact, setContact] = useState({
+		name: "",
+		email: "",
+		subject: "",
+		message: "",
+	});
 
-  console.log("Ethe aa", contactMutation);
-  return {
-    data,
-    error,
-    contact,
-    loading,
-    setContact,
-    contactMutation,
-  };
+	// Mutation Query
+	const [contactMutation, { data, error, loading }] = useMutation(
+		postContactDataMutation
+	);
+
+	const sendEmail = (data) => {
+		dispatch(contactSendMailAction(data));
+	};
+
+	// Selector
+	// const MailResponse = useSelector((state) => state.ContactReducer);
+
+	return {
+		data,
+		error,
+		contact,
+		loading,
+		sendEmail,
+		setContact,
+		contactMutation,
+	};
 };
 
 export default useContactHook;
