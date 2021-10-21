@@ -1,5 +1,3 @@
-// Thunk
-import Thunk from "redux-thunk";
 // RootReducer
 import RootReducer from "./Reducers";
 // Saga
@@ -11,7 +9,7 @@ import rootSaga from "./sagas";
 // Creating Saga Middleware
 const sagaMiddleware = createSagaMiddleware();
 // Middlewares
-export const middlewares = [Thunk, sagaMiddleware];
+export const middlewares = [sagaMiddleware];
 // Creating Stack of Middlewares
 export const storeWithMiddlewares = applyMiddleware(...middlewares)(
   createStore
