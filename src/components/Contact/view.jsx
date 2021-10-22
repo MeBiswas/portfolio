@@ -9,9 +9,7 @@ const ContactComponent = ({ name, change, email, submit, subject, message }) => 
 					<h1>I'd Love To Hear From You.</h1>
 
 					<p className="lead">
-						Lorem ipsum Do commodo in proident enim in dolor cupidatat
-						adipisicing dolore officia nisi aliqua incididunt Ut veniam lorem
-						ipsum Consectetur ut in in eu do.
+						Do you have a project or an idea? Let's connect and get things done.
 					</p>
 				</div>
 			</div>
@@ -64,7 +62,7 @@ const ContactComponent = ({ name, change, email, submit, subject, message }) => 
 									value={message}
 									id="contactMessage"
 									name="contactMessage"
-									placeholder="message"
+									placeholder="Message"
 									onChange={(e) => change(e, 'message')}
 								></textarea>
 							</div>

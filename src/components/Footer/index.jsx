@@ -1,11 +1,12 @@
 import React from "react";
+// Proptypes
 import PropTypes from "prop-types";
 
-function Footer(props) {
+function Footer({ name }) {
   return (
     <footer>
       <div className="row">
-        <div className="col-six tab-full pull-right social">
+        <div className="col-four tab-full pull-right social">
           <ul className="footer-social">
             <li>
               <a href="/">
@@ -37,12 +38,10 @@ function Footer(props) {
 
         <div className="col-eight tab-full">
           <div className="copyright">
-            <span>© Copyright 2018 {props.copyright}</span>
+            <span>© Copyright 2021</span>
             <span>
-              Design by <a href="http://www.styleshout.com/">styleshout</a>
-            </span>
-            <span>
-              Distributed by <a href="https://themewagon.com/">themewagon</a>
+              Design and Developer by{" "}
+              <a href="http://www.styleshout.com/">{name}</a>
             </span>
           </div>
         </div>
@@ -58,7 +57,7 @@ function Footer(props) {
 }
 
 Footer.propTypes = {
-  copyright: PropTypes.string,
+  name: PropTypes.string,
 };
 
 export default Footer;

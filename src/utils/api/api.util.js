@@ -1,12 +1,9 @@
 import axios from "axios";
 
-// API URI
-const api_uri = "http://localhost:4000/api";
-
 // Axios Post API
 export async function axiosPostRequest(endpoint, body) {
   const response = await axios
-    .post(api_uri + endpoint, body)
+    .post(process.env.REACT_APP_API_URI + endpoint, body)
     .then((res) => res)
     .catch((err) => {
       throw err;
