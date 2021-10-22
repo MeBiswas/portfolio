@@ -1,8 +1,8 @@
 import React from "react";
-// View
-import { AboutComponent } from "./view";
 // Custom Hook
 import useAboutHook from "./hooks";
+// View
+import { AboutComponent } from "./view";
 
 const About = (props) => {
 	// Custom Hook

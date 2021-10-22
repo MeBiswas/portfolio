@@ -6,7 +6,7 @@ import ContactComponent from "./view";
 
 const Contact = () => {
 	// Destructuring Custom Hook
-	const { error, loading, contact, setContact, contactMutation } =
+	const { error, contact, loading, sendEmail, setContact, contactMutation } =
 		useContactHook();
 
 	// Input Change Handler Method
@@ -23,6 +23,7 @@ const Contact = () => {
 			contact.message !== ""
 		) {
 			e.preventDefault();
+			sendEmail(contact);
 			contactMutation({
 				variables: {
 					name: contact.name,
