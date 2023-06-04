@@ -11,7 +11,6 @@ const About = (props) => {
 	if (AboutData.length <= 0) {
 		return null;
 	}
-	// console.log("About Component =>", AboutData);
 	return (
 		<>
 			<AboutComponent {...AboutData} />

@@ -33,7 +33,7 @@ const useContactHook = () => {
 	};
 
 	// Selector
-	// const MailResponse = useSelector((state) => state.ContactReducer);
+	const MailResponse = useSelector((state) => state.ContactReducer);
 
 	return {
 		data,
@@ -42,6 +42,7 @@ const useContactHook = () => {
 		loading,
 		sendEmail,
 		setContact,
+		MailResponse,
 		contactMutation,
 	};
 };

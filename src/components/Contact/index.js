@@ -6,8 +6,14 @@ import ContactComponent from "./view";
 
 const Contact = () => {
 	// Destructuring Custom Hook
-	const { error, contact, loading, sendEmail, setContact, contactMutation } =
-		useContactHook();
+	const { 
+		error, 
+		contact, 
+		loading, 
+		sendEmail, 
+		setContact, 
+		contactMutation 
+	} = useContactHook();
 
 	// Input Change Handler Method
 	const changeHandler = (e, key) => {
@@ -46,7 +52,6 @@ const Contact = () => {
 	if (!error && loading) {
 		return null;
 	}
-	// console.log("Contact =>", data, error, loading);
 	return (
 		<>
 			<ContactComponent

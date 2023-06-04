@@ -5,7 +5,7 @@ function Footer(props) {
   return (
     <footer>
       <div className="row">
-        <div className="col-six tab-full pull-right social">
+        <div className="col-four tab-full pull-right social">
           <ul className="footer-social">
             <li>
               <a href="/">
@@ -37,12 +37,12 @@ function Footer(props) {
 
         <div className="col-eight tab-full">
           <div className="copyright">
-            <span>© Copyright 2018 {props.copyright}</span>
+            <span>© Copyright 2022 {props.copyright}</span>
             <span>
-              Design by <a href="http://www.styleshout.com/">styleshout</a>
+              Design by <a href="http://www.styleshout.com/">Abhipriyo Biswas</a>
             </span>
             <span>
-              Distributed by <a href="https://themewagon.com/">themewagon</a>
+              Distributed by <a href="https://themewagon.com/">Heroku</a>
             </span>
           </div>
         </div>

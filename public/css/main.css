@@ -1193,7 +1193,7 @@ header .row {
 header .top-bar {
   display: block;
   background: #000000;
-  min-width: 220px;
+  min-width: 185px;
   min-height: 66px;
   position: absolute;
   left: 90px;
@@ -1202,7 +1202,7 @@ header .top-bar {
 header .logo {
   float: left;
   margin-left: 20px;
-  margin-right: 50px;
+  margin-right: 20px;
   margin-top: 25px;
   position: relative;
 }
@@ -1216,7 +1216,7 @@ header .logo a {
   color: transparent;
   width: 92px;
   height: 15px;
-  background: url("../images/logo.png") no-repeat center;
+  background: url("../images/logo-2.png") no-repeat center;
   background-size: 92px 15px;
 }
 

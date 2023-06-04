@@ -11,7 +11,6 @@ const Intro = () => {
 	if (IntroData.length <= 0) { 
     return null; 
   }
-  // console.log("Intro Component =>", IntroData);
   return (
 		<>
 			<IntroComponent {...IntroData} />

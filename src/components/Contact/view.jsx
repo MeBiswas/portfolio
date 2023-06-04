@@ -5,13 +5,11 @@ const ContactComponent = ({ name, change, email, submit, subject, message }) => 
 		<section id="contact">
 			<div className="row section-intro">
 				<div className="col-twelve">
-					<h5>Contact</h5>
+					<h5>Contact Me</h5>
 					<h1>I'd Love To Hear From You.</h1>
 
 					<p className="lead">
-						Lorem ipsum Do commodo in proident enim in dolor cupidatat
-						adipisicing dolore officia nisi aliqua incididunt Ut veniam lorem
-						ipsum Consectetur ut in in eu do.
+						Send me an email.
 					</p>
 				</div>
 			</div>
@@ -100,11 +98,11 @@ const ContactComponent = ({ name, change, email, submit, subject, message }) => 
 					</div>
 					<h5>Where to find me</h5>
 					<p>
-						Rasoolpur Nwada, Sector-62
+						#3680/3/357, St. No. 1, Guru Nanak Nagar,
 						<br />
-						Noida, UP
+						33 Feet Road, Ludhiana-141015,
 						<br />
-						201309 India
+						Punjab, India
 					</p>
 				</div>
 				<div className="col-four tab-full collapse">

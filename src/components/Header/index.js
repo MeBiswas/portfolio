@@ -10,7 +10,6 @@ const Header = (props) => {
 		setMenu(!menu);
 	};
 
-  // console.log('Header Component =>', props)
 	return (
 		<header>
 			<div className="row">
