@@ -18,7 +18,7 @@ export const AboutComponent = ({
 					<h1>Let me introduce myself.</h1>
 
 					<div className="intro-info">
-						<img src="images/profile-pic.jpg" alt="Profile_Picture" />
+						<img src="images/avatar.jpg" alt="Profile_Picture" />
 						<p className="lead">{title}</p>
 					</div>
 				</div>
@@ -83,7 +83,13 @@ export const AboutComponent = ({
 					>
 						Hire Me
 					</a>
-					<a href="/" title="Download CV" className="button button-primary">
+					<a
+						target="_blank"
+						rel="noreferrer"
+						title="Download CV"
+						className="button button-primary"
+						href="https://docs.google.com/document/d/0B13_uGESZRMVLWh2czZ6ZTkwQUplczh1aEdWSUJYVHgzc2Jr/edit?usp=sharing&ouid=114432332917183187392&resourcekey=0-37hoGJgrzkHQhs7MHcKQ8Q&rtpof=true&sd=true"
+					>
 						Download CV
 					</a>
 				</div>

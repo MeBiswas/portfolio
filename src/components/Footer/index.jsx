@@ -38,7 +38,7 @@ function Footer({ name }) {
 
         <div className="col-eight tab-full">
           <div className="copyright">
-            <span>© Copyright 2021</span>
+            <span>© Copyright 2023</span>
             <span>
               Design and Developer by{" "}
               <a href="http://www.styleshout.com/">{name}</a>

@@ -3,24 +3,33 @@ import PropTypes from "prop-types";
 
 const Services = (props) => {
   return (
-    <section id="services">
-      <div className="overlay"></div>
+		<section id="services">
+			<div className="overlay"></div>
 
-      <div className="row section-intro">
-        <div className="col-twelve">
-          <h5>{props.secTitle}Services</h5>
-          <h1>What Can I Do For You?</h1>
+			<div className="row section-intro">
+				<div className="col-twelve">
+					<h5>{props.secTitle}Services</h5>
+					<h1>What Can I Do For You?</h1>
 
-          <p className="lead">
-            Lorem ipsum Do commodo in proident enim in dolor cupidatat
-            adipisicing dolore officia nisi aliqua incididunt Ut veniam lorem
-            ipsum Consectetur ut in in eu do.
-          </p>
-        </div>
-      </div>
+					<p className="lead">
+						Throughout my journey, I have developed a keen eye for detail and a
+						deep understanding of storytelling techniques. I believe that every
+						video or audio project has its unique narrative, and my goal is to
+						enhance that narrative by seamlessly combining visuals, audio, and
+						effects.
+					</p>
+					<p className="lead">
+						Whether it's crafting engaging videos, perfecting audio tracks, or
+						adding captivating effects, I am committed to delivering
+						high-quality and impactful work. I thrive in collaborative
+						environments and enjoy working closely with clients to bring their
+						vision to fruition.
+					</p>
+				</div>
+			</div>
 
-      <div className="row services-content">
-        <div id="owl-slider" className="owl-carousel services-list">
+			{/* <div className="row services-content">
+        <div>
           <div className="service">
             <span className="icon">
               <i className="icon-earth"></i>
@@ -129,9 +138,9 @@ const Services = (props) => {
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  );
+      </div> */}
+		</section>
+	);
 };
 
 Services.propTypes = {

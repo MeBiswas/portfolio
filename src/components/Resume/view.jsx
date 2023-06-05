@@ -13,11 +13,11 @@ export const ResumeComponent = ({ education, experience }) => {
 					<h1>More of my credentials.</h1>
 
 					<p className="lead">
-						As a full-stack developer, I have more than 3 years of experience
-						designing distributed systems, building web applications and backend
-						APIs. Contributing to the team's success and grasping new concepts
-						are two of my biggest strengths. I am a critical thinker and a lover
-						of people eager to learn new things in life.
+						My goal is to deliver exceptional work that exceeds expectations and
+						leaves a lasting impact on audiences. Whether it's editing videos
+						for social media, producing promotional materials, or enhancing
+						audio tracks for podcasts, I am committed to bringing creativity,
+						technical excellence, and a fresh perspective to every project.
 					</p>
 				</div>
 			</div>
