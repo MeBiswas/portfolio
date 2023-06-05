@@ -18,7 +18,7 @@ export const AboutComponent = ({
 					<h1>Let me introduce myself.</h1>
 
 					<div className="intro-info">
-						<img src="images/profile-pic.jpg" alt="Profile_Picture" />
+						<img src="images/avatar.jpg" alt="Profile_Picture" />
 						<p className="lead">{title}</p>
 					</div>
 				</div>

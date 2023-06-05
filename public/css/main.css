@@ -1615,15 +1615,15 @@ header .logo a {
   margin-left: -30px;
 }
 .intro-info img {
-  height: 9rem;
-  width: 9rem;
+  height: 12rem;
+  width: 12rem;
   border-radius: 50%;
   margin: 0.9rem 0 0 0;
   float: left;
 }
 .intro-info .lead {
-  text-align: left;
-  padding-left: 13rem;
+  text-align: justify;
+  padding-left: 15rem;
 }
 
 .about-content {
@@ -1637,6 +1637,9 @@ header .logo a {
   font-size: 1.8rem;
   text-transform: uppercase;
   letter-spacing: 0.25rem;
+}
+.about-content p {
+  text-align: justify;
 }
 .about-content .info-list {
   list-style: none;
