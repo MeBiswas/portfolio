@@ -12,7 +12,7 @@ import reportWebVitals from "./reportWebVitals";
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  uri: "http://localhost:4000/graphql",
+  uri: process.env.REACT_APP_GRAPH_QL_URI,
 });
 
 ReactDOM.render(

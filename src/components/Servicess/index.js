@@ -12,15 +12,14 @@ const Services = (props) => {
           <h1>What Can I Do For You?</h1>
 
           <p className="lead">
-            Lorem ipsum Do commodo in proident enim in dolor cupidatat
-            adipisicing dolore officia nisi aliqua incididunt Ut veniam lorem
-            ipsum Consectetur ut in in eu do.
+            I have ample experience in Designing and Development. I can work on
+            your project throughout the life cycle of the Development process.
           </p>
         </div>
       </div>
 
-      <div className="row services-content">
-        <div id="owl-slider" className="owl-carousel services-list">
+      {/* <div className="row services-content">
+        <div>
           <div className="service">
             <span className="icon">
               <i className="icon-earth"></i>
@@ -129,7 +128,7 @@ const Services = (props) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };

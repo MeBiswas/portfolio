@@ -8,36 +8,36 @@ import { getResumeDataQuery } from "../../utils";
 import { useDispatch, useSelector } from "react-redux";
 // Action
 import {
-	resumeErrorAction,
-	resumeLoadingAction,
-	resumeSuccessAction,
+  resumeErrorAction,
+  resumeLoadingAction,
+  resumeSuccessAction,
 } from "../../redux/Actions";
 
 const useResumeHook = () => {
-	// Dispatcher
-	const dispatch = useDispatch();
+  // Dispatcher
+  const dispatch = useDispatch();
 
-	// Query Hook
-	const { data, error, loading } = useQuery(getResumeDataQuery);
+  // Query Hook
+  const { data, error, loading } = useQuery(getResumeDataQuery);
 
-	// LifeCycle Method
-	useEffect(() => {
-		dispatch(resumeLoadingAction(loading));
-	}, [dispatch, loading]);
+  // LifeCycle Method
+  useEffect(() => {
+    dispatch(resumeLoadingAction(loading));
+  }, [dispatch, loading]);
 
-	// LifeCycle Method
-	useEffect(() => {
-		if (error) {
-			dispatch(resumeErrorAction(error?.message));
-		} else {
-			dispatch(resumeSuccessAction(data?.resume));
-		}
-	}, [dispatch, error, data]);
+  // LifeCycle Method
+  useEffect(() => {
+    if (error) {
+      dispatch(resumeErrorAction(error?.message));
+    } else {
+      dispatch(resumeSuccessAction(data?.resume));
+    }
+  }, [dispatch, error, data]);
 
-	// Selector Hook
-	const ResumeData = useSelector((state) => state.ResumeReducer);
+  // Selector Hook
+  const ResumeData = useSelector((state) => state.ResumeReducer);
 
-	return ResumeData;
+  return ResumeData;
 };
 
 export default useResumeHook;

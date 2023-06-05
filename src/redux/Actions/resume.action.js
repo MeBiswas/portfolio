@@ -1,23 +1,23 @@
 // Action Types
 import { resumeActionTypes } from "../Constants";
 
-export const resumeLoadingAction = (payload) => (dispatch) => {
-  dispatch({
+export const resumeLoadingAction = (payload) => {
+  return {
     payload,
-    type: resumeActionTypes.Get_Resume_Loading
-  })
-}
+    type: resumeActionTypes.Get_Resume_Loading,
+  };
+};
 
-export const resumeSuccessAction = (payload) => (dispatch) => {
-  dispatch({
+export const resumeSuccessAction = (payload) => {
+  return {
     payload,
-    type: resumeActionTypes.Get_Resume
-  })
-}
+    type: resumeActionTypes.Get_Resume,
+  };
+};
 
-export const resumeErrorAction = (payload) => (dispatch) => {
-  dispatch({
+export const resumeErrorAction = (payload) => {
+  return {
     payload,
-    type: resumeActionTypes.Get_Resume_Error
-  })
-}
+    type: resumeActionTypes.Get_Resume_Error,
+  };
+};
