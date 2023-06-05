@@ -33,12 +33,12 @@ const App = () => {
       {/* <CTA /> */}
       <Services />
       <Stats
-        cupCount={150}
-        awardsCount={2}
-        ideaCount={100}
-        clientCount={15}
-        hourCount={7200}
-        projectCount={50}
+        cupCount={10}
+        awardsCount={1}
+        ideaCount={15}
+        clientCount={2}
+        hourCount={50}
+        projectCount={3}
       />
       <Contact />
       <Footer name="Abhipriyo Biswas" />
