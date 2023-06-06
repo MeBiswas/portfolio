@@ -23,5 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # backend
+/server
 /backend/dist
 /backend/node_modules
