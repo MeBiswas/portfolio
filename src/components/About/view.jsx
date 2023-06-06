@@ -88,7 +88,7 @@ export const AboutComponent = ({
 						rel="noreferrer"
 						title="Download CV"
 						className="button button-primary"
-						href="https://docs.google.com/document/d/0B13_uGESZRMVLWh2czZ6ZTkwQUplczh1aEdWSUJYVHgzc2Jr/edit?usp=sharing&ouid=114432332917183187392&resourcekey=0-37hoGJgrzkHQhs7MHcKQ8Q&rtpof=true&sd=true"
+						href="https://drive.google.com/file/d/143lS5ajNnQtg3u8nZFyd2nZhh1klyHkj/view?usp=sharing"
 					>
 						Download CV
 					</a>
